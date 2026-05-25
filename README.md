@@ -142,7 +142,63 @@ test_reqres.py::test_register_user_successful     PASSED
 test_reqres.py::test_login_user_missing_password  PASSED
 
 ```
+## ⚙️ CI/CD — GitHub Actions
 
+Tests run automatically on every push and pull request via GitHub Actions.
+
+```yaml
+name: ReqRes API Test Suite
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  schedule:
+    - cron: '0 8 * * *'   # runs every day at 8am UTC automatically
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Step 1 — Check out your code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2 — Install Python
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # Step 3 — Install your dependencies from requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Step 4 — Create folder for reports
+      - name: Create artifacts directory
+        run: mkdir -p artifacts
+
+      # Step 5 — Run all 10 tests
+      - name: Run test suite
+        run: |
+          pytest test_reqres.py -v \
+            --html=artifacts/report.html \
+            --self-contained-html \
+            --junitxml=artifacts/results.xml
+
+      # Step 6 — Upload report so you can download it from GitHub
+      - name: Upload test report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-report
+          path: artifacts/
+          retention-days: 30
 ---
 
 ## 🗺️ Roadmap — Coming Next
@@ -160,6 +216,6 @@ test_reqres.py::test_login_user_missing_password  PASSED
 QA Automation Engineer | 6+ years experience
 Python · Pytest · REST API Testing · CI/CD
 
-- Former QA Engineer — Android Auto Infotainment (Google via Virtusa)
+- QA Engineer — Android Auto Infotainment (Ex-Google via Virtusa)
 - Available for QA automation contracts on Upwork
 - [GitHub](https://github.com/Aferuza) 
