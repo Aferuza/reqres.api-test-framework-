@@ -157,7 +157,7 @@ test_reqres.py::test_delete_user_successful       PASSED
 test_reqres.py::test_register_user_successful     PASSED
 test_reqres.py::test_login_user_missing_password  PASSED
 
-========================= 10 passed in 7.38 seconds ==========================
+========================= 10 passed in 3.09s seconds ==========================
 ```
 
 ---
