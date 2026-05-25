@@ -7,7 +7,9 @@
 ![API](https://img.shields.io/badge/API-ReqRes.in-orange)
 ![CI](https://github.com/Aferuza/reqres.api-test-framework-/actions/workflows/test.yml/badge.svg)
 
+---
 
+## 📌 Overview
 
 This framework automates REST API testing for [ReqRes.in](https://reqres.in) —
 a real, hosted API used to validate professional test automation frameworks.
@@ -18,7 +20,9 @@ Built as a portfolio project demonstrating:
 - Negative and edge case testing
 - Clean, maintainable Python test code
 
-## Test Coverage — 10 Tests
+---
+
+## ✅ Test Coverage — 10 Tests
 
 | # | Test | Method | Endpoint | Type |
 |---|------|--------|----------|------|
@@ -47,8 +51,9 @@ reqres.api-test-framework/
 └── README.md
 ```
 
+---
 
-Tech Stack
+## 🛠️ Tech Stack
 
 | Tool | Version | Purpose |
 |------|---------|---------|
@@ -57,6 +62,7 @@ Tech Stack
 | Requests | 2.31 | HTTP client |
 | pytest-html | 4.x | HTML test reports |
 
+---
 
 ## ⚡ Quick Start
 
@@ -88,6 +94,8 @@ pytest -v
 pytest -v --html=report.html --self-contained-html
 open report.html
 ```
+
+---
 
 ## 🧪 What Each Test Validates
 
@@ -131,8 +139,10 @@ and `token` in response payload.
 Negative auth test — confirms 400 Bad Request returned with
 `"Missing password"` error message when password field omitted.
 
-## Sample Output
-Tests:10 passed in 7.38s
+---
+
+## 📊 Sample Output
+
 ```
 collected 10 items
 
@@ -147,8 +157,12 @@ test_reqres.py::test_delete_user_successful       PASSED
 test_reqres.py::test_register_user_successful     PASSED
 test_reqres.py::test_login_user_missing_password  PASSED
 
+========================= 10 passed in 7.38 seconds ==========================
 ```
-## CI/CD — GitHub Actions
+
+---
+
+## ⚙️ CI/CD — GitHub Actions
 
 Tests run automatically on every push and pull request via GitHub Actions.
 
@@ -161,35 +175,29 @@ on:
   pull_request:
     branches: [ main, master ]
   schedule:
-    - cron: '0 8 * * *'   # runs every day at 8am UTC automatically
+    - cron: '0 8 * * *'
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-
-      # Step 1 — Check out your code
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2 — Install Python
       - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
-      # Step 3 — Install your dependencies from requirements.txt
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4 — Create folder for reports
       - name: Create artifacts directory
         run: mkdir -p artifacts
 
-      # Step 5 — Run all 10 tests
       - name: Run test suite
         run: |
           pytest test_reqres.py -v \
@@ -197,7 +205,6 @@ jobs:
             --self-contained-html \
             --junitxml=artifacts/results.xml
 
-      # Step 6 — Upload report so you can download it from GitHub
       - name: Upload test report
         uses: actions/upload-artifact@v3
         if: always()
@@ -207,22 +214,26 @@ jobs:
           retention-days: 30
 ```
 
+---
+
 ## 🗺️ Roadmap — Coming Next
 
 - [ ] Parametrized tests for multiple user IDs and status codes
 - [ ] Response time / performance threshold validation
 - [ ] Extended edge case coverage (boundary values, special characters)
-- [ ] GitHub Actions CI/CD — auto-run on every push
-- [ ] Allure or pytest-html report integration
+- [x] GitHub Actions CI/CD — auto-run on every push ✅
+- [ ] Allure report integration
 
+---
 
-## Author
+## 👤 Author
 
 **Aferuza**
 QA Automation Engineer | 6+ years experience
 Python · Pytest · REST API Testing · CI/CD
 
-- QA Engineer — Android Auto Infotainment (Ex-Google via Virtusa)
+- QA Engineer — Android Auto Infotainment (Google via Virtusa)
 - Available for QA automation contracts on Upwork
-- [GitHub](https://github.com/Aferuza) 
-- [LinkedIn](www.linkedin.com/in/feruza-askar)
+- [GitHub](https://github.com/Aferuza) | [LinkedIn](https://linkedin.com/in/feruza-askar)
+
+---
