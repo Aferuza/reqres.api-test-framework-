@@ -1,3 +1,14 @@
+# ReqRes API Test Framework
+> REST API automation suite built with Python · Pytest · Requests
+
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Pytest](https://img.shields.io/badge/Pytest-8.x-green)
+![Tests](https://img.shields.io/badge/Tests-10%20Passing-brightgreen)
+![API](https://img.shields.io/badge/API-ReqRes.in-orange)
+![CI](https://github.com/Aferuza/reqres.api-test-framework-/actions/workflows/test.yml/badge.svg)
+
+
+
 This framework automates REST API testing for [ReqRes.in](https://reqres.in) —
 a real, hosted API used to validate professional test automation frameworks.
 
@@ -121,7 +132,7 @@ Negative auth test — confirms 400 Bad Request returned with
 `"Missing password"` error message when password field omitted.
 
 ## Sample Output
-10 passed in 7.38s
+Tests:10 passed in 7.38s
 ```
 collected 10 items
 
@@ -137,7 +148,7 @@ test_reqres.py::test_register_user_successful     PASSED
 test_reqres.py::test_login_user_missing_password  PASSED
 
 ```
-## ⚙️ CI/CD — GitHub Actions
+## CI/CD — GitHub Actions
 
 Tests run automatically on every push and pull request via GitHub Actions.
 
@@ -194,7 +205,7 @@ jobs:
           name: test-report
           path: artifacts/
           retention-days: 30
----
+```
 
 ## 🗺️ Roadmap — Coming Next
 
@@ -214,3 +225,4 @@ Python · Pytest · REST API Testing · CI/CD
 - QA Engineer — Android Auto Infotainment (Ex-Google via Virtusa)
 - Available for QA automation contracts on Upwork
 - [GitHub](https://github.com/Aferuza) 
+- [LinkedIn](www.linkedin.com/in/feruza-askar)
