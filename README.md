@@ -46,7 +46,6 @@ Tech Stack
 | Requests | 2.31 | HTTP client |
 | pytest-html | 4.x | HTML test reports |
 
----
 
 ## ⚡ Quick Start
 
@@ -78,8 +77,6 @@ pytest -v
 pytest -v --html=report.html --self-contained-html
 open report.html
 ```
-
----
 
 ## 🧪 What Each Test Validates
 
@@ -123,10 +120,8 @@ and `token` in response payload.
 Negative auth test — confirms 400 Bad Request returned with
 `"Missing password"` error message when password field omitted.
 
----
-
 ## Sample Output
-
+10 passed in 7.38s
 ```
 collected 10 items
 
